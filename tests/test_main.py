@@ -1,4 +1,4 @@
-from python_app.main import sum
+from pivot_script.main import sum
 
 
 def test_sum():

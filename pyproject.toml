@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "python_app"
+name = "pivot_script"
 version = "0.1.0"
-description = "DESCRIPTION"
-authors = ["dev_name <email@example.com>"]
+description = "Write the request from a Metabase query that linearize answers of a Decidim survey"
+authors = ["dynnammo <contact@opensourcepolitics.eu>"]
 readme = "README.md"
-packages = [{include = "python_app"}]
+packages = [{include = "pivot_script"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

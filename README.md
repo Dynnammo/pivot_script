@@ -1,7 +1,7 @@
-# python_app
+# pivot_script
 This is a project of the company [Open Source Politics](https://opensourcepolitics.eu), based on the [python-app template](https://github.com/OpenSourcePolitics/python-app/).
 
-DESCRIPTION
+Write the request from a Metabase query that linearize answers of a Decidim survey
 
 ## Getting started
 Requirements : 
@@ -9,7 +9,7 @@ Requirements :
 - [Poetry](https://python-poetry.org) (TL;DR run `curl -sSL https://install.python-poetry.org | python3 -` should work)
 - A [Git Guardian](https://dashboard.gitguardian.com/auth/login) account. You can create one by using GitHub SSO. 
 
-1. Clone repository : `git clone https://github.com/OpenSourcePolitics/python_app.git`)
+1. Clone repository : `git clone https://github.com/OpenSourcePolitics/pivot_script.git`)
 2. Setup repository : `./script/setup`. Launching the script will
     1. Check requirements
     2. Ask you to enter needed values for project name and other informations
@@ -29,8 +29,8 @@ This repository is setup by design with [`pre-commit`](https://pre-commit.com/),
 If you want to modify or add your own hooks, please check [the pre-commit documentation](https://pre-commit.com/)
 
 ## Contribute
-- [Create an issue](https://github.com/OpenSourcePolitics/python_app/issues) to report a bug/ask for a new feature
-- [Fork this project](https://github.com/OpenSourcePolitics/python_app/issues) to make your changes and make a PR
+- [Create an issue](https://github.com/OpenSourcePolitics/pivot_script/issues) to report a bug/ask for a new feature
+- [Fork this project](https://github.com/OpenSourcePolitics/pivot_script/issues) to make your changes and make a PR
 
 ## License
 This software is licensed under the GNU AGPLv3, which states that **you can use, modify and redistribute this software as long as you publish the modifications under the same license.**
