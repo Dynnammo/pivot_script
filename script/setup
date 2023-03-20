@@ -1,0 +1,75 @@
+#!/bin/bash
+
+# Requirements are set
+## Python
+python_is_here=$(python3 --version)
+if [[ -z "$python_is_here" ]]
+then
+    echo "Python3 is not installed! Please check https://www.python.org/downloads/"
+    exit 1
+else
+    echo "Python 3 already installed !"
+fi
+
+## Poetry
+poetry_is_here=$(poetry --version)
+if [[ -z "$poetry_is_here" ]]
+then
+    echo "Poetry not installed. Launching installation..."
+    curl -sSL https://install.python-poetry.org | python3 -
+    echo "Poetry installed !"
+else
+    echo "Poetry already installed !"
+fi
+
+# Get OS version for sed management
+os=$OSTYPE
+if [[ "$os" == "darwin"* ]]; then
+    brew install gnu-sed
+    alias sed=gsed
+fi
+
+# Project informations
+## Project name
+while [[ -z "$project_name" ]]; do
+    echo "Give the name of your project in snake_case: "
+    read project_name
+done
+sed -i "s/python_app/$project_name/g" pyproject.toml
+sed -i "s/python_app/$project_name/g" README.md
+mv python_app/ "$project_name"
+sed -i "s/python_app/$project_name/g" tests/test_main.py
+sed -i "s/python_app/$project_name/g" pytest.ini
+sed -i "s/python_app/$project_name/g" .github/workflows/lint.yml
+
+## Project description
+while [[ -z "$description" ]]; do
+    echo "Give the description of your project: "
+    read description
+done
+sed -i "s/DESCRIPTION/$description/g" pyproject.toml
+sed -i "s/DESCRIPTION/$description/g" README.md
+
+## Project information in pyproject.toml
+### Name of the developer
+default_name="dev"
+echo "Give your name (default: $default_name): "
+read name
+if [[ -z "$name" ]]; then
+    name=$default_name
+fi
+sed -i "s/dev_name/$name/" pyproject.toml
+
+### Email of the developer
+default_email="contact@opensourcepolitics.eu"
+echo "Give your e-mail (default: $default_email): "
+read email
+if [[ -z "$email" ]]; then
+    email=$default_email
+fi
+sed -i "s/email@example\.com/$email/" pyproject.toml
+
+# Setup environment
+poetry install
+poetry run pre-commit install
+poetry run ggshield auth login

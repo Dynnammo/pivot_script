@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "python_app"
+version = "0.1.0"
+description = "DESCRIPTION"
+authors = ["dev_name <email@example.com>"]
+readme = "README.md"
+packages = [{include = "python_app"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+flake8 = "^6.0.0"
+pre-commit = "^3.0.0"
+ggshield = "^1.14.2"
+pytest-cov = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

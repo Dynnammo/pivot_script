@@ -1,0 +1,4 @@
+.coverage
+coverage.xml
+dist/
+.cache_ggshield
