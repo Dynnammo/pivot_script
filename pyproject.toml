@@ -9,6 +9,7 @@ packages = [{include = "pivot_script"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 metabase-api = "^0.3.0"
+pandas = "^1.5.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
